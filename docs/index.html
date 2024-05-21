@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ripetizioni private</title>
+    <link rel="website icon" type="png" href="./img/lezione.png">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+      emailjs.init("3cjCK9gan2iN8iIJj");
+    })();
+    </script>
+</head>
+<body>
+    <div class="contanier">
+        <h1>Ripetizioni private</h1><br>
+        <form>
+            <label for="utente">Nome e cognome:</label>
+            <input type="text" id="utente" name="utente" placeholder="Inserisci nome e cognome" autocomplete="off">
+
+            <label for="telefono">Numero di telefono:</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Inserisci numero cellulare" autocomplete="off">
+
+            <label for="materia">Materia di interesse:</label>
+                <select id="materia" name="materia" autocomplete="off">
+                    <option value="" disabled selected>Seleziona una materia</option>
+                    <option value="matematica">Matematica</option>
+                    <option value="fisica">Fisica</option>
+                    <option value="chimica">Chimica</option>
+                    <option value="inglese">Inglese</option>
+                    <option value="informatica">Informatica</option>
+                </select>
+
+            <label for="livello">Livello di studio:</label>
+                <select id="livello" name="livello" autocomplete="off">
+                    <option value="" disabled selected>Seleziona il livello di studio</option>
+                    <option value="elementari">Scuola Elementare</option>
+                    <option value="medie">Scuola Media</option>
+                    <option value="superiori">Scuola Superiore</option>
+                </select>
+
+            <label for="data">Data preferita per la lezione:</label>
+            <input type="date" id="data" name="data" autocomplete="off">
+
+            <label for="ora">Ora preferita per la Lezione:</label>
+            <input type="time" id="ora" name="ora" autocomplete="off">
+
+            <label for="modalita">Modalità della lezione:</label>
+                <select id="modalita" name="modalita" autocomplete="off">
+                    <option value="" disabled selected>Seleziona la modalità della lezione</option>
+                    <option value="online">Online</option>
+                    <option value="presenza">In Presenza</option>
+                </select>
+
+            <button type="submit" id="sendMailBtn">Prenota la lezione</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
