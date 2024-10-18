@@ -1,3 +1,15 @@
+let btn = document.getElementById("sendMailBtn");
+
+btn.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    // Mostra il messaggio e disabilita il pulsante
+    alert("Hai cliccato il pulsante");
+    btn.disabled = true;
+
+    sendMail();
+});
+
 function formatDate(date) {
     let day = date.getDate();
     let month = date.getMonth() + 1;
@@ -14,13 +26,6 @@ function formatDate(date) {
     return day + '/' + month + '/' + year;
 }
 
-let btn = document.getElementById("sendMailBtn");
-
-btn.addEventListener("click", function(event) {
-    event.preventDefault();
-    sendMail();
-});
-
 function sendMail(){
     // Recupera i valori dai campi del modulo
     let utente = document.getElementById("utente").value;
@@ -34,18 +39,21 @@ function sendMail(){
     // Validazione dei campi
     if (!utente || !telefono || !materia || !livello || !data || !ora || !modalita) {
         alert("Si prega di compilare tutti i campi del modulo.");
+        btn.disabled = false; // Riabilita il pulsante se c'è un errore di validazione
         return;
     }
 
     // Validazione specifica per il campo telefono (10 cifre)
     if (telefono.length !== 10 || isNaN(telefono)) {
         alert("Inserisci un numero di telefono valido di 10 cifre.");
+        btn.disabled = false; // Riabilita il pulsante se c'è un errore di validazione
         return;
     }
 
     // Validazione specifica per il campo utente (solo lettere)
     if (!/^[a-zA-Z\s]*$/.test(utente)) {
         alert("Il campo utente accetta solo lettere e spazi.");
+        btn.disabled = false; // Riabilita il pulsante se c'è un errore di validazione
         return;
     }
 
@@ -71,5 +79,6 @@ function sendMail(){
         alert("L'email è stata inviata con successo!");
     }, function(error) {
         alert("Si è verificato un errore durante l'invio dell'email: " + JSON.stringify(error));
+        btn.disabled = false; // Riabilita il pulsante in caso di errore di invio
     });
 }
