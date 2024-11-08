@@ -4,7 +4,7 @@ btn.addEventListener("click", function(event) {
     event.preventDefault();
     
     // Mostra il messaggio e disabilita il pulsante
-    alert("Hai cliccato il pulsante");
+    alert("Hai confermato la tua prenotazione!");
     btn.disabled = true;
 
     sendMail();
